@@ -1,3 +1,24 @@
+Metadata-Version: 2.4
+Name: reel-generator
+Version: 0.1.1
+Summary: Chat to short vertical video reel generator
+Author: Your Name
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi==0.111.0
+Requires-Dist: uvicorn[standard]==0.30.1
+Requires-Dist: pydantic==2.8.2
+Requires-Dist: moviepy==1.0.3
+Requires-Dist: gTTS==2.5.1
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: pillow==10.3.0
+Requires-Dist: requests==2.32.3
+Requires-Dist: numpy==1.26.4
+Provides-Extra: dev
+Requires-Dist: pytest==8.2.2; extra == "dev"
+Dynamic: license-file
+
 # Chat-to-Reel Generator
 
 A Python application that accepts an idea for a short video ("reel") in English via a chat-style API/UI, generates a script, creates AI narration audio, composes background music, assembles a vertical video with dynamic stock/background clips or generated visuals, overlays captions, and outputs a shareable MP4 file.
