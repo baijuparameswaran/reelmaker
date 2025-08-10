@@ -62,14 +62,12 @@ def rich_script_from_idea(idea: str) -> str:
 
 
 def generate_script_and_scenes(idea: str) -> ScriptResult:
-    # Future: If OPENAI_API_KEY present, call OpenAI; else fallback.
-    
+# Future: If OPENAI_API_KEY present, call OpenAI; else fallback.
     if os.getenv('OPENAI_API_KEY'):
         try:
             # Placeholder: still use simple until integrated.
             #script = simple_script_from_idea(idea)
             from openai import OpenAI  # type: ignore
-            print(f"WEEENNTTT to OPENAOOOOOIII")
             client = OpenAI()
             prompt = (
                 "You are a concise scriptwriter for short vertical video reels. "
@@ -97,5 +95,9 @@ def generate_script_and_scenes(idea: str) -> ScriptResult:
             # Fallback to rich heuristic if OpenAI not available or fails
             script = rich_script_from_idea(idea)
             #script = simple_script_from_idea(idea)
+    else:
+        # Fallback to rich heuristic if OpenAI not available or fails
+        script = rich_script_from_idea(idea)
+
     scenes = split_script_into_scenes(script)
     return ScriptResult(script=script, scenes=scenes)
